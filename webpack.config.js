@@ -4,7 +4,7 @@ var webpack = require('webpack'),
 
 var APP = __dirname + '/app';
 
-module.exports = {
+var config = {
     // config goes here
     context: APP,
     entry: {
@@ -43,5 +43,8 @@ module.exports = {
         new webpack.DefinePlugin({
             ON_TEST: process.env.NODE_ENV === 'test',
         })
-    ],
+    ]
 };
+
+
+module.exports = config;

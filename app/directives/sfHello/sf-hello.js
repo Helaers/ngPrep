@@ -4,10 +4,10 @@ import './sf-hello.scss';
 
 export default ngModule => {
 
-    if (ON_TEST) {
-        //testFile(ngModule);
-        require('./sf-hello.spec')(ngModule);
-    }
+    //if (ON_TEST) {
+    //    //testFile(ngModule);
+    //    require('./sf-hello.spec')(ngModule);
+    //}
 
 
     ngModule.directive('sfHello', function () {
