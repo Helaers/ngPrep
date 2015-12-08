@@ -1,6 +1,7 @@
 'use strict';
-var webpack = require('webpack'),
-    path = require('path');
+var webpack = require('webpack')
+var path = require('path');
+var nodeEnvironment = process.env.NODE_ENV;
 
 var APP = __dirname + '/app';
 
@@ -41,7 +42,7 @@ var config = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            ON_TEST: process.env.NODE_ENV === 'test',
+            ON_TEST: nodeEnvironment === 'test',
         })
     ]
 };
