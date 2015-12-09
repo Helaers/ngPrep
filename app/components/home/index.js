@@ -8,17 +8,20 @@ const module = angular.module('appName.components.home', [
     uiRouter,
 ]);
 
+
 module.config(['$stateProvider', ($stateProvider) => {
     $stateProvider
         .state('home', {
             url: '/',
-            title: 'Home',
+            //title: 'Resumes',
             templateUrl: './components/home/home.html',
             controller: homeController,
             controllerAs: 'vm',
+            //role: ['admin', 'publisher', 'editor'],
         });
 }]);
 
 module.controller('HomeController', homeController);
+
 
 export default module.name;

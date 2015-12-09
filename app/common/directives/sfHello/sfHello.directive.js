@@ -3,8 +3,8 @@ import template from './sfHello.directive.html';
 import './sfHello.directive.scss';
 
 //controller
-EditableBookDirectiveController.$inject = [];
-function EditableBookDirectiveController() {
+sfHelloDirectiveController.$inject = [];
+function sfHelloDirectiveController() {
 
     const vm = this;
 
@@ -26,7 +26,7 @@ export const sfHelloDirective = function () {
     return {
         restrict: 'E',
         template: template,
-        controller: sfHelloDirective,
+        controller: sfHelloDirectiveController,
         replace: true,
         controllerAs: 'vm',
         scope: {},
