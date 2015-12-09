@@ -12,7 +12,7 @@ function HomeController() {
     /////////
 
     function activate() {
-
+        console.log('this is the home controller');
     }
 
 }
