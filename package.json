@@ -23,6 +23,7 @@
     "karma-chrome-launcher": "^0.2.2",
     "karma-mocha": "^0.2.1",
     "karma-webpack": "^1.7.0",
+    "karma-webpack-with-fast-source-maps": "^1.9.2",
     "ng-annotate-loader": "0.0.10",
     "node-sass": "^3.4.2",
     "raw-loader": "^0.5.1",
@@ -33,6 +34,9 @@
   },
   "dependencies": {
     "angular": "^1.4.8",
-    "angular-model-factory": "^1.0.3"
+    "angular-model-factory": "^1.0.3",
+    "angular-ui-router": "^0.2.15",
+    "deep-diff": "^0.3.3",
+    "uri-templates": "^0.1.9"
   }
 }

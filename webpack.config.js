@@ -1,19 +1,18 @@
 'use strict';
-var webpack = require('webpack')
-var path = require('path');
+const webpack = require('webpack')
+const path = require('path');
 var nodeEnvironment = process.env.NODE_ENV;
 
-var APP = __dirname + '/app';
-
-var config = {
-    // config goes here
-    context: APP,
-    entry: {
-        app: ['webpack/hot/dev-server', './index.js']
-    },
+const config = {
+    entry: [
+        'webpack/hot/dev-server',
+        'webpack-dev-server/client?http://localhost:8080',
+        path.resolve(__dirname, 'app', 'main.js'),
+    ],
     output: {
-        path: APP,
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, 'app', 'build'),
+        filename: 'bundle.js',
+        publicPath: '/build',
     },
     module: {
         preLoaders: [
@@ -41,6 +40,7 @@ var config = {
         ]
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
             ON_TEST: nodeEnvironment === 'test',
         })

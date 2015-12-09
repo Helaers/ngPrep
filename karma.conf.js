@@ -21,8 +21,9 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: [entry],
-    webpack: webpackConfig,
+    files: [
+      { pattern: 'tests.bundle.js', watched: false },
+    ],
 
 
     // list of files to exclude
@@ -70,6 +71,71 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultanous
     concurrency: Infinity,
+
+    // webpack conf
+    // see also: https://www.npmjs.com/package/karma-webpack-with-fast-source-maps
+    webpack: {
+      resolve: {
+        root: __dirname,
+        extensions: ['', '.js'],
+      },
+      devtool: 'cheap-module-source-map',
+      module: {
+        noParse: [
+          /node_modules\/sinon\//,
+        ],
+        loaders: [
+          {
+            test: /\.js$/,
+            loader: 'babel-loader',
+            exclude: [ /node_modules/ ],
+          },
+          {
+            test: /\.html$/,
+            loader: 'raw',
+            exclude: [ /node_modules/ ],
+          },
+          {
+            test: /\.scss$/,
+            loader: 'null-loader', // 'style!css!sass',
+            exclude: [ /node_modules/ ],
+          },
+          {
+            test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: 'null-loader', //'url-loader?limit=10000&minetype=application/font-woff',
+            exclude: [ /node_modules/ ],
+          },
+          {
+            test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: 'null-loader', //'file-loader',
+            exclude: [ /node_modules/ ],
+          },
+          {
+            test: /node_modules\/auth0-lock\/.*\.js$/,
+            loaders: [
+              'transform-loader/cacheable?brfs',
+              'transform-loader/cacheable?packageify',
+            ],
+          },
+          {
+            test: /node_modules\/auth0-lock\/.*\.ejs$/,
+            loader: 'transform-loader/cacheable?ejsify',
+          },
+          {
+            test: /\.json$/,
+            loader: 'json-loader',
+          },
+        ],
+      },
+      stats: { colors: true, reasons: true, errorDetails: true },
+      debug: false,
+      cache: true,
+      plugins: [
+        new webpack.DefinePlugin({
+          VERSION: JSON.stringify(packageJson.version),
+        }),
+      ],
+    },
 
     plugins: [
         require('karma-webpack'),
