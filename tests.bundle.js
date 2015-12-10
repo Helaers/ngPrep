@@ -1,9 +1,10 @@
-import 'jquery';
+//import 'jquery';
 
-import chai from 'chai';
-import chaiAsPromised from 'chai-as-promised';
-import sinonChai from 'sinon-chai';
-import 'chai-jquery';
+//import chai from 'chai';
+//import chaiAsPromised from 'chai-as-promised';
+//import sinonChai from 'sinon-chai';
+//import 'chai-jquery';
+//import chaiJQ from 'chai-jq';
 
 
 // we need this to fill in the gap for the missing features for phantomJS
@@ -17,9 +18,9 @@ import 'angular-mocks/angular-mocks';
 import 'app/app.modules.js';
 
 // prepare for extended chai
-chai.use(chaiAsPromised);
-chai.use(sinonChai);
-//chai.use(chaiJquery);
+//chai.use(chaiAsPromised);
+//chai.use(sinonChai);
+//chai.use(chaiJQ);
 
 //
 // Using: karma-webpack

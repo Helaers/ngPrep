@@ -16,7 +16,7 @@ function sfHelloDirectiveController() {
     /////////
 
     function activate() {
-
+        //throw new Error('this is a test error')
     }
 
 }

@@ -1,10 +1,33 @@
-export default ngModule => {
-    describe('sf-hello', () => {
+describe('sf-hello directive test', function() {
 
-        beforeEach(window.module(ngModule.name));
+    let $compile;
+    let $rootScope;
+    let $scope;
 
-        it('should test true-false', () => {
-            expect(true).to.be.true;
+    beforeEach(() => {
+        angular.mock.module('ngPrep');
+
+        inject((_$compile_, _$rootScope_) => {
+            $compile = _$compile_;
+            $rootScope = _$rootScope_;
+            $scope = $rootScope.$new();
+        });
+
+    });
+
+    describe('Render', () => {
+
+        it('should...', () => {
+            const element = create(`<sf-hello></sf-hello>`, $scope);
+            console.log(element);
+            expect(element).to.have.class('sf-hello')
         });
     });
-};
+
+
+    function create(html, scope) {
+        const element = $compile(angular.element(html))(scope);
+        scope.$digest();
+        return element;
+    }
+});
