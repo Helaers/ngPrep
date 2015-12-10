@@ -3,7 +3,7 @@ import angular from 'angular';
 angular
     .module('ngPrep')
     .constant('events', {
-        errorEvent: 'errorEvent'
+        errorEvent: 'errorEvent',
     })
     .config(routing)
     .config(errorHandler)
@@ -20,7 +20,7 @@ function errorHandler($provide) {
         function ($delegate, $injector, events) {
             return function (exception, cause) {
                 const $rootScope = $injector.get('$rootScope');
-                let message = exception && exception.message;
+                const message = exception && exception.message;
                 //message += exception.stack;
                 $rootScope.$emit(events.errorEvent, 'Program Error', message);
                 $delegate(exception, cause);
