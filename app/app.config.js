@@ -1,7 +1,7 @@
 import angular from 'angular';
 
 angular
-    .module('appName')
+    .module('ngPrep')
     .config(routing);
 
 routing.$inject = ['$urlRouterProvider'];

@@ -11,7 +11,7 @@
     "expect": false,
     "inject": false,
     "angular": false,
-    "emit": false
+    "ON_TEST": false
   },
   "rules": {
     "indent": [2, 4],

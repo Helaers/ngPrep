@@ -1,6 +1,6 @@
 //controller
-HomeController.$inject = [];
-function HomeController() {
+HomeController.$inject = ['$log'];
+function HomeController($log) {
 
     const vm = this;
 
@@ -16,4 +16,5 @@ function HomeController() {
     }
 
 }
+
 export default HomeController;

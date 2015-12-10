@@ -4,7 +4,7 @@ import uiRouter from 'angular-ui-router';
 import homeController from './home.controller.js';
 import './home.scss';
 
-const module = angular.module('appName.components.home', [
+const module = angular.module('ngPrep.components.home', [
     uiRouter,
 ]);
 

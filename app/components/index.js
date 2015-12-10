@@ -2,7 +2,7 @@ import angular from 'angular';
 import home from './home';
 
 
-const module = angular.module('appName.components', [
+const module = angular.module('ngPrep.components', [
     home,
 ]);
 

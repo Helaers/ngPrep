@@ -1,5 +1,5 @@
 //import html & css
-import template from './sfHello.directive.html';
+import template from './sfHello.directive.htm';
 import './sfHello.directive.scss';
 
 //controller

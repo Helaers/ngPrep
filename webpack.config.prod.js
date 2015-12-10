@@ -5,23 +5,14 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
     entry: [
-        'webpack/hot/dev-server',
-        'webpack-dev-server/client?http://localhost:8080',
         path.resolve(__dirname, 'app', 'app.js'),
     ],
     output: {
-        path: path.resolve(__dirname, 'app', 'build'),
+        path: path.resolve(__dirname, 'dist', 'app/build'),
         filename: 'bundle.js',
         publicPath: '/build',
     },
     module: {
-        preLoaders: [
-            {
-                test: /\.js$/,
-                loader: 'eslint',
-                exclude: /(node_modules|bower_components)/,
-            },
-        ],
         loaders: [
             {
                 test: /\.scss$/,
@@ -50,12 +41,11 @@ const config = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.DefinePlugin({
-            ON_TEST: false,
-        }),
         // styles from initial chunks into separate css output file
         new ExtractTextPlugin('bundle.css'),
+        new webpack.DefinePlugin({
+            prod: true,
+        }),
     ]
 };
 

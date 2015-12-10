@@ -3,7 +3,7 @@ import angular from 'angular';
 //import directives
 import sfHello from './sfHello';
 
-const module = angular.module('appName.common.directives', [
+const module = angular.module('ngPrep.common.directives', [
     sfHello,
 ]);
 

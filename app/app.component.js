@@ -1,4 +1,4 @@
-import template from './app.html';
+import template from './app.htm';
 
 const appComponent = () => {
     return {

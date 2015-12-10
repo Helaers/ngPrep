@@ -1,7 +1,7 @@
 import angular from 'angular';
 import { sfHelloDirective } from './sfHello.directive';
 
-const module = angular.module('app.common.directives.sfHelloDirective', []);
+const module = angular.module('ngPrep.common.directives.sfHelloDirective', []);
 
 module.directive('sfHello', sfHelloDirective);
 
